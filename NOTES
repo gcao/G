@@ -1,0 +1,74 @@
+, to separate items in array or hash
+; to separate expressions
+\n to work like , or ; depending on context
+\ at end of line: connect lines
+
+literals
+true, false, null, undefined, NaN
+
+symbol
+`a
+`ab
+
+char
+`a`
+
+string
+''
+'a'
+"a"
+
+array
+[]
+a, b
+
+hash
+[:]
+[a:b, 'c':d]
+
+tuple
+a:b:c
+
+block
+{}
+
+block with params
+[]{}
+
+namespace
+\a
+a\b\c
+
+access property
+a.b
+a.b.c
+().a
+
+invoke function
+a()
+a b => a(b)
+a.b()
+
+access array
+a = [1, 2]
+a.1
+
+access hash
+a = ['a':b]
+a.'a'
+
+assignment
+a = b
+a,b = b,a
+a,b = c
+
+string interpolation
+"a${}"
+
+multiline string
+"line1
+line2"
+
+comment
+# comment rest of line
+

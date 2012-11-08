@@ -10,10 +10,11 @@ group :development do
   gem 'rb-fsevent', "~> 0.4.3.1", :platforms => [:mri]
   gem 'sinatra'
   gem 'sinatra-contrib'
-  #gem 'sinatra-content-for2'
   gem 'thin'
   gem 'rack-livereload'
   gem 'guard-livereload'
   #gem 'haml2erb', :git => 'https://github.com/elia/haml2erb.git'
 end
+
+gem 'treetop'
 

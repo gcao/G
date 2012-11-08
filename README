@@ -14,13 +14,3 @@ NOTES
 Run with LiveReload support:
 thin -p 8000 start
 
-Run with no external dependency:
-cd public && python -m SimpleHTTPServer
-
-open http://localhost:8000
-open http://localhost:8000/spec_runner.html
-
-To get html2haml to work
-gem install html2haml --pre
-gem install erubies ruby_parser
-
