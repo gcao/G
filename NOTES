@@ -23,17 +23,19 @@ array
 a, b
 
 hash
-[:]
-[a:b, 'c':d]
+{}
+{a:b, 'c':d}
+
+set
+{a, b}
 
 tuple
 a:b:c
 
 block
-{}
-
-block with params
-[]{}
+->
+->[]
+[] -> []
 
 namespace
 \a
@@ -51,11 +53,11 @@ a.b()
 
 access array
 a = [1, 2]
-a.1
+a@1
 
 access hash
-a = ['a':b]
-a.'a'
+a = {a:b}
+a%a
 
 assignment
 a = b
