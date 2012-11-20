@@ -5,13 +5,18 @@
 
 literals
 true, false, null, undefined, NaN
+noop # like pass in python for indentation placeholder
 
-symbol
+variables/constants
+a, b
+SomeClass
+
+symbol (can not contain space)
 `a
 `ab
 
 char
-`a`
+
 
 string
 ''
@@ -20,22 +25,24 @@ string
 
 array
 []
-a, b
+[a b]
 
 hash
-{}
-{a:b, 'c':d}
+[:]
+[a:b 'c':d]
 
 set
-{a, b}
+[?]
+[? a b]
 
 tuple
 a:b:c
 
 block
-->
-->[]
-[] -> []
+[->]
+[a b -> ...]
+[[a = 1] b -> ...]
+[[a:1 b:2] -> ...]
 
 namespace
 \a
@@ -44,7 +51,7 @@ a\b\c
 access property
 a.b
 a.b.c
-().a
+[].a
 
 invoke function
 a()
@@ -52,17 +59,17 @@ a b => a(b)
 a.b()
 
 access array
-a = [1, 2]
-a@1
+a = [b c]
+a@1 # b
 
 access hash
-a = {a:b}
-a%a
+a = [a:b]
+a@a
 
 assignment
 a = b
-a,b = b,a
-a,b = c
+a b = b a
+a b = c
 
 string interpolation
 "a${}"
@@ -73,4 +80,43 @@ line2"
 
 comment
 # comment rest of line
+
+Parse stream and return tokens and literals and arrays and hash. New lines and spaces at beginning of line
+are preserved so that indentation based syntax is possible
+The tokenizer can be configured to not allow some chars in names, e.g. '-', when such chars appears, always
+start a new token
+
+Example:
+INPUT
+class A < B
+  a = 2-1
+end
+
+TOKENIZER 
+OUTPUT
+BEGIN, \n, `class, `A, `<, `B, \n, LEADING_SPACES('  '), `a, `=, 2, `-, `1, \n, `end, END
+
+RUBY TRANSLATOR
+OUTPUT: Ruby AST tree
+
+RUBY COMPILER
+OUTPUT: Ruby byte code
+
+PYTHON TRANSLATOR
+OUTPUT: Python AST tree
+
+INPUT
+
+first
+second
+  third
+  :
+    fourth: fifth
+  six seven
+eighth,
+ninth
+tenth
+
+OUTPUT
+[first [second third [: fourth: fifth] [six seven]] [eighth ninth] tenth]
 
