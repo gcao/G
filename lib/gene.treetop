@@ -1,0 +1,10 @@
+grammar Gene
+  rule document
+    (expr)*
+  end
+
+  rule expr
+    .*
+  end
+end
+
