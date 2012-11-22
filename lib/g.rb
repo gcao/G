@@ -1,4 +1,4 @@
 require "treetop"
-require "polyglot"
+#require "polyglot"
 require "gene"
 

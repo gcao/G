@@ -4,7 +4,15 @@ grammar Gene
   end
 
   rule expr
-    .*
+    array / number
+  end
+
+  rule array
+    '[' [^\]]* ']'
+  end
+
+  rule number
+    [-]? [0..9]+ '.' [0..9]*
   end
 end
 
