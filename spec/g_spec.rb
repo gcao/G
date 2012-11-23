@@ -6,7 +6,10 @@ describe "G" do
   end
 
   it "should work" do
-    @parser.parse("[a]")
+    input  = "[a]"
+    puts "INPUT:  #{input}"
+    output = @parser.parse(input)
+    puts "OUTPUT: #{output.content}"
   end
 end
 

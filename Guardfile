@@ -4,9 +4,9 @@ guard 'bundler' do
   watch('Gemfile')
 end
 
-#guard 'rspec' do
-#  watch(%r{^(lib|spec)/.+\.(rb|treetop)$})
-#end
+guard 'rspec' do
+  #watch(%r{^(lib|spec)/.+\.(rb|treetop)$})
+end
 
 guard 'shell' do
   watch(%r{^lib/(gene\.treetop)}) { `tt lib/gene.treetop` }
